@@ -1,8 +1,9 @@
 import Part from "./Part";
 const Content = (props) => {
+  console.log(props.parts);
   return (
     <div>
-      <Part parts={props.name} exercise={props.parts.exercise} />
+      <Part parts={props.parts} />
     </div>
   );
 };

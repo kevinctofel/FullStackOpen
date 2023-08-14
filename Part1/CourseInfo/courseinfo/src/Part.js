@@ -1,10 +1,11 @@
 const Part = (props) => {
-  console.log(props);
-  return (
+  console.log(props.parts);
+  const classList = props.parts.map((value) => (
     <p>
-      {props.parts.name} {props.parts.exercise}
+      {value.name} {value.exercises}
     </p>
-  );
+  ));
+  return classList;
 };
 
 export default Part;
