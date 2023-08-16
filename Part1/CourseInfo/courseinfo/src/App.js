@@ -22,7 +22,7 @@ const App = () => {
 
   return (
     <div>
-      <Header course={course.name} />
+      <Header course={course} />
       <Content parts={course.parts} />
       <Total parts={course.parts} />
     </div>
