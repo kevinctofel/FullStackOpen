@@ -1,10 +1,10 @@
 import { useState } from "react";
 
 const Statistics = (props) => {
-  console.log(props);
+  if (props.stats["all"] === 0) return <p>No feedback given yet.</p>;
+
   return (
     <div>
-      <h2>Statistics</h2>
       <div>Good stats: {props.stats["good"]}</div>
       <div>Neutral: {props.stats["neutral"]}</div>
       <div>Bad: {props.stats["bad"]}</div>
@@ -48,6 +48,7 @@ const App = () => {
       <button onClick={handleGoodClick}>Good</button>
       <button onClick={handleNeutralClick}>Neutral</button>
       <button onClick={handleBadClick}>Bad</button>
+      <h2>Statistics</h2>
       <Statistics
         stats={{ good: good, neutral: neutral, bad: bad, all: all }} // object of key-value pairs for states
       />
