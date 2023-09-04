@@ -17,19 +17,15 @@ const App = () => {
   ];
 
   const [selected, setSelected] = useState(0);
-  const [topQuote, setTopQuote] = useState(0);
-  const [votesForQuotes, setVotesForQuotes] = useState([
-    0, 0, 0, 0, 0, 0, 0, 0,
-  ]);
+  const [votesForQuotes, setVotesForQuotes] = useState(
+    new Array(anecdotes.length).fill(0)
+  );
 
   const updateVotes = (props) => {
     console.log(props);
     const copyOfVotes = [...votesForQuotes];
     copyOfVotes[selected] = copyOfVotes[selected] + 1;
     setVotesForQuotes(copyOfVotes);
-    setTopQuote(Math.max(...votesForQuotes));
-    console.log(Math.max(...votesForQuotes));
-    // off by one?
   };
 
   return (
