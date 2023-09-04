@@ -4,11 +4,6 @@ const Button = (props) => {
   return <button onClick={props.handleClick}>{props.text}</button>;
 };
 
-const ShowTopQuote = (props) => {
-  console.log(props);
-  // return <p>{props[1][props[0][0]]}</p>;
-};
-
 const App = () => {
   const anecdotes = [
     "If it hurts, do it more often.",
@@ -32,7 +27,8 @@ const App = () => {
     const copyOfVotes = [...votesForQuotes];
     copyOfVotes[selected] = copyOfVotes[selected] + 1;
     setVotesForQuotes(copyOfVotes);
-    setTopQuote([votesForQuotes.indexOf(Math.max(...votesForQuotes))]);
+    setTopQuote(Math.max(...votesForQuotes));
+    console.log(Math.max(...votesForQuotes));
     // off by one?
   };
 
@@ -41,13 +37,11 @@ const App = () => {
       <h2>Anecdote of the day</h2>
       <p>{anecdotes[selected]}</p>
       <p>Has {votesForQuotes[selected]} votes.</p>
-
       <Button
         handleClick={() => updateVotes(selected)}
         quoteIndex={selected}
         text="Vote"
       />
-
       <Button
         handleClick={() =>
           setSelected(Math.floor(Math.random() * anecdotes.length))
@@ -55,8 +49,9 @@ const App = () => {
         quoteIndex={selected}
         text="Next anecdote"
       />
+
       <h2>Anecdote with the most votes</h2>
-      <ShowTopQuote props={[topQuote, anecdotes]} />
+      <p>{anecdotes[votesForQuotes.indexOf(Math.max(...votesForQuotes))]}</p>
     </div>
   );
 };
