@@ -1,17 +1,17 @@
 /* eslint-disable react/prop-types */
-const Header = ({ parts }) => {
+const Header = ({ courses }) => {
   const initialValue = 0;
 
-  const total = parts.parts.reduce(
+  const total = courses.parts.reduce(
     (accumulator, currentValue) => accumulator + currentValue.exercises,
     initialValue
   );
 
-  console.log(parts.parts);
+  console.log(courses.parts);
 
   return (
     <div>
-      {parts.parts.map((part) => (
+      {courses.parts.map((part) => (
         <p key={part["id"]}>
           {part["name"]} {part["exercises"]}{" "}
         </p>
