@@ -1,12 +1,13 @@
 /* eslint-disable react/prop-types */
-
-import Header from "./Header";
-
-const Course = ({ course }) => {
+const Course = ({ courses }) => {
   return (
     <div>
-      <h2>{course.name}</h2>
-      <Header props={course.parts}></Header>
+      <h2>{courses.name}</h2>
+      {courses.parts.map((part) => (
+        <div key={part.id}>
+          {part.name} {part.exercises}
+        </div>
+      ))}
     </div>
   );
 };

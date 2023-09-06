@@ -46,16 +46,25 @@ const App = () => {
     },
   ];
 
-  {
-    courses.map((topic) => (
-      <p key={part["id"]}>
-        {part["name"]} {part["exercises"]}{" "}
-      </p>
-    ));
-  }
   return (
     <div>
-      <Course course={course} />
+      <h1>Web Development Curriculum</h1>
+      {courses.map((topic) => (
+        <div key={topic.id}>
+          <Course courses={topic} />
+          <div>
+            <h3>
+              Total of{" "}
+              {topic.parts.reduce(
+                (accumulator, currentValue) =>
+                  accumulator + currentValue.exercises,
+                0
+              )}{" "}
+              exercises
+            </h3>
+          </div>
+        </div>
+      ))}
     </div>
   );
 };
