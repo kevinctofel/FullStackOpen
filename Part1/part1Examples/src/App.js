@@ -1,13 +1,16 @@
-const App = () => {
-  const [left, setLeft] = useState(0);
-  const [right, setRight] = useState(0);
+const App = (props) => {
+  const { notes } = props;
 
   return (
     <div>
-      {left}
-      <button onClick={() => setLeft(left + 1)}>left</button>
-      <button onClick={() => setRight(right + 1)}>right</button>
-      {right}
+      <h1>Notes</h1>
+      <ul>
+        <li>{notes[0].content}</li>
+        <li>{notes[1].content}</li>
+        <li>{notes[2].content}</li>
+      </ul>
     </div>
   );
 };
+
+export default App;
