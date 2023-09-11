@@ -8,10 +8,15 @@ const App = () => {
 
   const addName = (event) => {
     event.preventDefault();
+    console.log(persons, persons.includes({ name: newName }));
     const personObject = {
       name: newName,
     };
-    if (persons.includes({ newName })) {
+    let names = persons.map((obj) => obj.name);
+    let nameSet = new Set(names);
+    const hasDuplicateNames = nameSet.size < persons.length;
+
+    if (hasDuplicateNames) {
       alert(`${newName} is already added to Phonebook`);
       console.log("Duplicate name!");
       setNewName("");
