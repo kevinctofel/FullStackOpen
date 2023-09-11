@@ -1,5 +1,6 @@
 /* eslint-disable react/jsx-key */
 import { useState } from "react";
+import Name from "./components/Name";
 
 const App = () => {
   const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
@@ -25,7 +26,6 @@ const App = () => {
       <h2>Phonebook</h2>
       <form onSubmit={addName}>
         <div>
-          {/* name: <input /> */}
           <input onChange={handleNameChange} value={newName} />
         </div>
         <div>
@@ -40,7 +40,7 @@ const App = () => {
 
       <div>
         {persons.map((person) => (
-          <p>key={person.name}</p>
+          <Name key={person.name} name={person.name} />
         ))}
       </div>
     </div>
