@@ -8,13 +8,13 @@ const App = () => {
 
   const addName = (event) => {
     event.preventDefault();
-    console.log(persons, persons.includes({ name: newName }));
+    console.log(persons, newName, typeof persons, typeof newName);
     const personObject = {
       name: newName,
     };
     let names = persons.map((obj) => obj.name);
-    let nameSet = new Set(names);
-    const hasDuplicateNames = nameSet.size < persons.length;
+    // let nameSet = new Set(names);
+    const hasDuplicateNames = names.includes(newName);
 
     if (hasDuplicateNames) {
       alert(`${newName} is already added to Phonebook`);
