@@ -13,7 +13,6 @@ const App = () => {
       name: newName,
     };
     let names = persons.map((obj) => obj.name);
-    // let nameSet = new Set(names);
     const hasDuplicateNames = names.includes(newName);
 
     if (hasDuplicateNames) {
