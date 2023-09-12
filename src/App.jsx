@@ -71,9 +71,11 @@ const App = () => {
       <h2>Numbers</h2>
 
       <div>
-        {persons.map((person) => (
-          <Name key={person.name} name={person.name} phone={person.phone} />
-        ))}
+        {persons
+          .filter((eachPerson) => eachPerson.name.includes(newSearch))
+          .map((person) => (
+            <Name key={person.name} name={person.name} phone={person.phone} />
+          ))}
       </div>
     </div>
   );
