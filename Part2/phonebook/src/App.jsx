@@ -3,25 +3,30 @@ import { useState } from "react";
 import Name from "./components/Name";
 
 const App = () => {
-  const [persons, setPersons] = useState([{ name: "Arto Hellas" }]);
+  const [persons, setPersons] = useState([
+    { name: "Arto Hellas", phone: "215-999-8888" },
+  ]);
   const [newName, setNewName] = useState("");
+  const [newNumber, setNewNumber] = useState("");
 
-  const addName = (event) => {
+  const addNameAndNumber = (event) => {
     event.preventDefault();
-    console.log(persons, newName, typeof persons, typeof newName);
     const personObject = {
       name: newName,
+      phone: newNumber,
     };
     let names = persons.map((obj) => obj.name);
     const hasDuplicateNames = names.includes(newName);
 
     if (hasDuplicateNames) {
       alert(`${newName} is already added to Phonebook`);
-      console.log("Duplicate name!");
+      // console.log("Duplicate name!");
       setNewName("");
+      setNewNumber("");
     } else {
       setPersons(persons.concat(personObject));
       setNewName("");
+      setNewNumber("");
     }
   };
 
@@ -30,15 +35,23 @@ const App = () => {
     setNewName(event.target.value);
   };
 
+  const handleNumberChange = (event) => {
+    console.log(event.target.value);
+    setNewNumber(event.target.value);
+  };
+
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addName}>
+      <form onSubmit={addNameAndNumber}>
         <div>
-          <input onChange={handleNameChange} value={newName} />
+          Name: <input onChange={handleNameChange} value={newName} />
+          <div>
+            Number: <input onChange={handleNumberChange} value={newNumber} />
+          </div>
         </div>
         <div>
-          <button type="submit">Add name</button>
+          <button type="submit">Add entry</button>
         </div>
       </form>
       {/* debugging output */}
@@ -49,7 +62,7 @@ const App = () => {
 
       <div>
         {persons.map((person) => (
-          <Name key={person.name} name={person.name} />
+          <Name key={person.name} name={person.name} phone={person.phone} />
         ))}
       </div>
     </div>
