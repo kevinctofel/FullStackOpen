@@ -8,6 +8,7 @@ const App = () => {
   ]);
   const [newName, setNewName] = useState("");
   const [newNumber, setNewNumber] = useState("");
+  const [newSearch, setSearch] = useState("");
 
   const addNameAndNumber = (event) => {
     event.preventDefault();
@@ -40,23 +41,32 @@ const App = () => {
     setNewNumber(event.target.value);
   };
 
+  const handleSearch = (event) => {
+    console.log(event.target.value);
+    setSearch(event.target.value);
+  };
+
   return (
     <div>
       <h2>Phonebook</h2>
-      <form onSubmit={addNameAndNumber}>
-        <div>
-          Name: <input onChange={handleNameChange} value={newName} />
-          <div>
-            Number: <input onChange={handleNumberChange} value={newNumber} />
-          </div>
-        </div>
-        <div>
-          <button type="submit">Add entry</button>
-        </div>
-      </form>
-      {/* debugging output */}
       <div>
-        <p>debug: {newName}</p>
+        <h3>
+          Filter by name: <input onChange={handleSearch} />
+        </h3>
+      </div>
+      <div>
+        <h2>Add new entry: </h2>
+        <form onSubmit={addNameAndNumber}>
+          <div>
+            Name: <input onChange={handleNameChange} value={newName} />
+            <div>
+              Number: <input onChange={handleNumberChange} value={newNumber} />
+            </div>
+          </div>
+          <div>
+            <button type="submit">Add entry</button>
+          </div>
+        </form>
       </div>
       <h2>Numbers</h2>
 
