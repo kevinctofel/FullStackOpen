@@ -72,7 +72,9 @@ const App = () => {
 
       <div>
         {persons
-          .filter((eachPerson) => eachPerson.name.includes(newSearch))
+          .filter((eachPerson) =>
+            eachPerson.name.toLowerCase().includes(newSearch.toLowerCase())
+          )
           .map((person) => (
             <Name key={person.name} name={person.name} phone={person.phone} />
           ))}
