@@ -1,5 +1,5 @@
 const Name = (person) => {
-  // Integrate search function
+  console.log("Name got ", person);
   return (
     <div>
       {person.name} {person.phone}

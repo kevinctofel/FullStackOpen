@@ -1,5 +1,6 @@
+/* eslint-disable react/jsx-key */
 /* eslint-disable react/prop-types */
-import Name from "./Name";
+import Output from "./Output";
 const Search = (props) => {
   console.log(props);
   return (
@@ -11,7 +12,8 @@ const Search = (props) => {
             .includes(props.searchData[1].toLowerCase())
         )
         .map((person) => (
-          <Name key={person.name} name={person.name} phone={person.phone} />
+          // <Name key={person.name} name={person.name} phone={person.phone} />
+          <Output props={person} />
         ))}
     </div>
   );
