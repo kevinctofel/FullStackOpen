@@ -1,6 +1,7 @@
 /* eslint-disable react/jsx-key */
 import { useState } from "react";
 import Name from "./components/Name";
+import Search from "./components/Search";
 
 const App = () => {
   const [persons, setPersons] = useState([
@@ -70,7 +71,7 @@ const App = () => {
       </div>
       <h2>Numbers</h2>
 
-      <div>
+      {/* <div>
         {persons
           .filter((eachPerson) =>
             eachPerson.name.toLowerCase().includes(newSearch.toLowerCase())
@@ -78,7 +79,9 @@ const App = () => {
           .map((person) => (
             <Name key={person.name} name={person.name} phone={person.phone} />
           ))}
-      </div>
+      </div> */}
+      <Search searchData={[persons, newSearch]} />
+      <div></div>
     </div>
   );
 };
