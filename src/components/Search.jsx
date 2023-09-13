@@ -2,17 +2,14 @@
 /* eslint-disable react/prop-types */
 import Output from "./Output";
 const Search = (props) => {
-  console.log(props);
+  console.log("Search got : ", props);
   return (
     <div>
-      {props.searchData[0]
+      {props.props[0]
         .filter((eachPerson) =>
-          eachPerson.name
-            .toLowerCase()
-            .includes(props.searchData[1].toLowerCase())
+          eachPerson.name.toLowerCase().includes(props.props[1].toLowerCase())
         )
         .map((person) => (
-          // <Name key={person.name} name={person.name} phone={person.phone} />
           <Output props={person} />
         ))}
     </div>
