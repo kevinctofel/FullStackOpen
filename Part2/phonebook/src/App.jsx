@@ -71,15 +71,6 @@ const App = () => {
       </div>
       <h2>Numbers</h2>
 
-      {/* <div>
-        {persons
-          .filter((eachPerson) =>
-            eachPerson.name.toLowerCase().includes(newSearch.toLowerCase())
-          )
-          .map((person) => (
-            <Name key={person.name} name={person.name} phone={person.phone} />
-          ))}
-      </div> */}
       <Search props={[persons, newSearch]} />
     </div>
   );

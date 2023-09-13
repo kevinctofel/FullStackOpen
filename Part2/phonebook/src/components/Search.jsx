@@ -2,7 +2,7 @@
 /* eslint-disable react/prop-types */
 import Output from "./Output";
 const Search = (props) => {
-  console.log("Search got : ", props);
+  // console.log("Search got : ", props);
   return (
     <div>
       {props.props[0]
