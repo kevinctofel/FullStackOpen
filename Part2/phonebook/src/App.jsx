@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-key */
 import { useState } from "react";
-import Name from "./components/Name";
+
 import Search from "./components/Search";
 
 const App = () => {
@@ -80,8 +80,7 @@ const App = () => {
             <Name key={person.name} name={person.name} phone={person.phone} />
           ))}
       </div> */}
-      <Search searchData={[persons, newSearch]} />
-      <div></div>
+      <Search props={[persons, newSearch]} />
     </div>
   );
 };
